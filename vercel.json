@@ -1,11 +1,19 @@
 {
   "version": 2,
   "public": true,
+  "services": {
+    "frontend": {
+      "root": ".",
+      "framework": "angular"
+    }
+  },
   "builds": [
     {
       "src": "package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "dist/vyaparsathi-ai/browser" }
+      "config": {
+        "distDir": "dist/vyaparsathi-ai/browser"
+      }
     }
   ],
   "routes": [

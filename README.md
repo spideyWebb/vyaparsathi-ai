@@ -20,9 +20,8 @@
 ## 📸 Visual Showcase & App Demo
 
 <div align="center">
-  <a href="https://ibb.co/MxVKFLMb"><img src="https://i.ibb.co/MxVKFLMb/image.png" width="100%" alt="VyaparSathi AI Dashboard & Financial Analytics" /></a>
-  <br/><br/>
-  <a href="https://ibb.co/5Xn9qDwL"><img src="https://i.ibb.co/5Xn9qDwL/image.png" width="100%" alt="VyaparSathi AI Invoicing & AI Copilot Workflows" /></a>
+  <a href="https://ibb.co/MxVKFLMb"><img src="https://i.ibb.co/MxVKFLMb/image.png" width="48%" alt="VyaparSathi AI Dashboard & Financial Analytics" /></a>
+  <a href="https://ibb.co/5Xn9qDwL"><img src="https://i.ibb.co/5Xn9qDwL/image.png" width="48%" alt="VyaparSathi AI Invoicing & AI Copilot Workflows" /></a>
 </div>
 
 ---

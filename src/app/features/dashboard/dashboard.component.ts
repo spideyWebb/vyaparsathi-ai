@@ -205,11 +205,14 @@ export class DashboardComponent implements OnInit {
 
   async loadDashboardData(): Promise<void> {
     try {
+      const base = typeof window !== 'undefined' && window.location.hostname === 'localhost'
+        ? 'http://localhost:8081/api/v1'
+        : 'https://vyaparsathi-api.onrender.com/api/v1';
       // Parallel API calls to fetch user's database records
       const [prodRes, invRes, expRes]: any = await Promise.all([
-        firstValueFrom(this.http.get<any>('http://localhost:8081/api/v1/inventory/products')).catch(() => null),
-        firstValueFrom(this.http.get<any>('http://localhost:8081/api/v1/sales/invoices')).catch(() => null),
-        firstValueFrom(this.http.get<any>('http://localhost:8081/api/v1/finance/expenses')).catch(() => null),
+        firstValueFrom(this.http.get<any>(`${base}/inventory/products`)).catch(() => null),
+        firstValueFrom(this.http.get<any>(`${base}/sales/invoices`)).catch(() => null),
+        firstValueFrom(this.http.get<any>(`${base}/finance/expenses`)).catch(() => null),
       ]);
 
       const products = (prodRes && prodRes.data) || [];

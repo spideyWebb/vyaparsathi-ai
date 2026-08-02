@@ -76,7 +76,12 @@ import { firstValueFrom } from 'rxjs';
   `,
 })
 export class AiChatComponent implements OnInit {
-  private apiUrl = 'http://localhost:8081/api/v1/ai/chat';
+  private get apiUrl(): string {
+    const base = typeof window !== 'undefined' && window.location.hostname === 'localhost'
+      ? 'http://localhost:8081/api/v1'
+      : 'https://vyaparsathi-api.onrender.com/api/v1';
+    return `${base}/ai/chat`;
+  }
   messages = signal<any[]>([]);
   inputText = signal<string>('');
 

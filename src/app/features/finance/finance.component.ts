@@ -130,7 +130,12 @@ import { firstValueFrom } from 'rxjs';
   `,
 })
 export class FinanceComponent implements OnInit {
-  private apiUrl = 'http://localhost:8081/api/v1/finance/expenses';
+  private get apiUrl(): string {
+    const base = typeof window !== 'undefined' && window.location.hostname === 'localhost'
+      ? 'http://localhost:8081/api/v1'
+      : 'https://vyaparsathi-api.onrender.com/api/v1';
+    return `${base}/finance/expenses`;
+  }
   expenses = signal<any[]>([]);
   grossSales = signal<number>(0);
   showExpenseModal = signal<boolean>(false);

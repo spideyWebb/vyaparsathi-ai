@@ -165,7 +165,12 @@ import { firstValueFrom } from 'rxjs';
   `,
 })
 export class SalesComponent implements OnInit {
-  private apiUrl = 'http://localhost:8081/api/v1/sales/invoices';
+  private get baseUrl(): string {
+    return typeof window !== 'undefined' && window.location.hostname === 'localhost'
+      ? 'http://localhost:8081/api/v1'
+      : 'https://vyaparsathi-api.onrender.com/api/v1';
+  }
+  private get apiUrl(): string { return `${this.baseUrl}/sales/invoices`; }
   invoices = signal<any[]>([]);
   showCreateModal = signal<boolean>(false);
 
@@ -199,7 +204,7 @@ export class SalesComponent implements OnInit {
     // 2. Persist PAID status in backend DB
     try {
       await firstValueFrom(
-        this.http.post<any>('http://localhost:8081/api/v1/sales/invoices/mark-paid', { id })
+        this.http.post<any>(`${this.baseUrl}/sales/invoices/mark-paid`, { id })
       );
     } catch (err) {
       console.warn('Mark paid API error:', err);

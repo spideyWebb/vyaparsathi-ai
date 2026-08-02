@@ -68,8 +68,11 @@ export class GstComponent implements OnInit {
 
   async loadGstData(): Promise<void> {
     try {
+      const base = typeof window !== 'undefined' && window.location.hostname === 'localhost'
+        ? 'http://localhost:8081/api/v1'
+        : 'https://vyaparsathi-api.onrender.com/api/v1';
       const res: any = await firstValueFrom(
-        this.http.get<any>('http://localhost:8081/api/v1/sales/invoices')
+        this.http.get<any>(`${base}/sales/invoices`)
       );
       if (res && res.success && Array.isArray(res.data)) {
         const invoices = res.data;

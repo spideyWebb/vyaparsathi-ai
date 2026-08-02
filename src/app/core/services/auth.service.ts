@@ -2,12 +2,15 @@ import { Injectable, signal, computed } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User, AuthResponse, ApiResponse } from '../models/user.model';
 import { firstValueFrom } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8081/api/v1';
+  private apiUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost'
+    ? 'http://localhost:8081/api/v1'
+    : 'https://vyaparsathi-api.onrender.com/api/v1';
 
   // Reactive State via Signals
   user = signal<User | null>(this.getStoredUser());

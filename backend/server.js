@@ -1,6 +1,6 @@
 const http = require('http');
 
-const PORT = 8081;
+const PORT = process.env.PORT || 8081;
 const users = new Map();         // identifier -> UserRecord
 const userProducts = new Map(); // userId -> Product[]
 const userInvoices = new Map(); // userId -> Invoice[]
@@ -443,5 +443,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`VyaparSathi API server running at http://localhost:${PORT}/api/v1`);
+  console.log(`VyaparSathi API server running on port ${PORT}`);
 });

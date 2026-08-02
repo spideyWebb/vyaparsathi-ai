@@ -174,7 +174,12 @@ import { firstValueFrom } from 'rxjs';
   `,
 })
 export class InventoryComponent implements OnInit {
-  private apiUrl = 'http://localhost:8081/api/v1/inventory/products';
+  private get apiUrl(): string {
+    const base = typeof window !== 'undefined' && window.location.hostname === 'localhost'
+      ? 'http://localhost:8081/api/v1'
+      : 'https://vyaparsathi-api.onrender.com/api/v1';
+    return `${base}/inventory/products`;
+  }
   products = signal<any[]>([]);
   showAddModal = signal<boolean>(false);
 

@@ -64,7 +64,7 @@ export class NavbarComponent {
     { label: 'Solutions', href: '#solutions' },
     { label: 'How It Works', href: '#how-it-works' },
     { label: 'Use Cases', href: '#use-cases' },
-    { label: 'Pricing', href: '#pricing' },
+    { label: 'Features', href: '#features' },
     { label: 'Support', href: '#support' },
   ];
 

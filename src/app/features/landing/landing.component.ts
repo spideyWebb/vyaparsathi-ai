@@ -162,17 +162,17 @@ import { AuthService } from '../../core/services/auth.service';
 
         <div class="relative z-10 max-w-[560px] mx-auto">
           <h2 class="font-heading font-extrabold text-white text-[clamp(1.5rem,4vw,2.2rem)] leading-tight">
-            Abhi Start Karein — Free Hai Pehle 30 Din!
+            Abhi Start Karein — 100% Free For Lifetime!
           </h2>
           <p class="text-white/60 mt-3 text-[clamp(0.9rem,2vw,1.05rem)] leading-relaxed">
-            No credit card needed. Setup in under 5 minutes. Cancel anytime. Join 10,000+ Bharatiya vyapaari already saving 10+ hours every week.
+            No credit card needed. Setup in under 2 minutes. 100% Free for MSMEs and Kirana stores. Join 10,000+ Bharatiya vyapaari already saving 10+ hours every week.
           </p>
           <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mt-8">
             <button
               (click)="navigate(authService.isAuthenticated() ? '/dashboard' : '/signup')"
               class="min-w-[200px] bg-[#7342E2] text-white font-semibold px-7 py-4 rounded-full shadow-lg shadow-[#7342E2]/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2"
             >
-              <span>{{ authService.isAuthenticated() ? 'Go to Dashboard' : 'Start Free Trial' }}</span>
+              <span>{{ authService.isAuthenticated() ? 'Go to Dashboard' : 'Start Your Free Journey' }}</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
               </svg>
@@ -184,7 +184,6 @@ import { AuthService } from '../../core/services/auth.service';
               Explore Solutions
             </button>
           </div>
-          <p class="text-white/40 text-xs mt-5">GST compliant • UPI integrated • NPCI certified stack</p>
         </div>
       </div>
     </section>

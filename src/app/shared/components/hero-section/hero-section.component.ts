@@ -36,7 +36,7 @@ import { AuthService } from '../../../core/services/auth.service';
             (click)="navigate(authService.isAuthenticated() ? '/dashboard' : '/signup')"
             class="group flex min-w-[220px] items-center justify-center gap-3 rounded-full bg-[#7342E2] px-[28px] py-[17px] text-[clamp(0.9rem,2vw,1rem)] font-semibold text-white shadow-[0_12px_32px_rgba(115,66,226,0.25)] transition-all hover:scale-105 active:scale-95"
           >
-            <span>{{ authService.isAuthenticated() ? 'Dashboard' : 'Start Free Trial' }}</span>
+            <span>{{ authService.isAuthenticated() ? 'Go to Dashboard' : 'Start Your Free Journey' }}</span>
             <svg class="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>

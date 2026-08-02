@@ -11,12 +11,12 @@ const userChats = new Map();    // userId -> ChatMessage[]
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY || '';
 
 async function fetchGeminiAiReply(userPrompt, storeContext) {
-  if (!GEMINI_API_KEY || !GEMINI_API_KEY.startsWith('AIzaSy')) {
+  if (!GEMINI_API_KEY || GEMINI_API_KEY.trim().length < 10) {
     return null;
   }
 
   try {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY.trim()}`;
     const payload = {
       contents: [{
         parts: [{

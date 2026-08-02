@@ -20,9 +20,9 @@
 ## 📸 Visual Showcase & App Demo
 
 <div align="center">
-  <img src="https://kommodo.ai/i/XdRlPJXKFYruTHXxi2u3" width="100%" alt="VyaparSathi AI Dashboard Analytics" />
+  <a href="https://ibb.co/MxVKFLMb"><img src="https://i.ibb.co/MxVKFLMb/image.png" width="100%" alt="VyaparSathi AI Dashboard & Financial Analytics" /></a>
   <br/><br/>
-  <img src="https://kommodo.ai/i/optV3VY67dxz3cMvFoxd" width="100%" alt="VyaparSathi AI Workflows" />
+  <a href="https://ibb.co/5Xn9qDwL"><img src="https://i.ibb.co/5Xn9qDwL/image.png" width="100%" alt="VyaparSathi AI Invoicing & AI Copilot Workflows" /></a>
 </div>
 
 ---

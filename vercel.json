@@ -1,12 +1,5 @@
 {
   "version": 2,
-  "public": true,
-  "services": {
-    "frontend": {
-      "root": ".",
-      "framework": "angular"
-    }
-  },
   "builds": [
     {
       "src": "package.json",

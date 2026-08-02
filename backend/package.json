@@ -1,0 +1,10 @@
+{
+  "name": "vyaparsathi-backend",
+  "version": "1.0.0",
+  "description": "VyaparSathi AI Backend API Server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {}
+}

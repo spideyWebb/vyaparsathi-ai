@@ -17,6 +17,14 @@
 
 ---
 
+## 📸 Visual Showcase & App Demo
+
+| 📊 Live MSME Store Dashboard & Financial Analytics | ⚡ Smart Invoicing, Inventory & AI Copilot |
+| :---: | :---: |
+| ![VyaparSathi AI Dashboard & Analytics](https://kommodo.ai/i/XdRlPJXKFYruTHXxi2u3) | ![VyaparSathi AI Billing & AI Copilot Workflows](https://kommodo.ai/i/optV3VY67dxz3cMvFoxd) |
+
+---
+
 ## ✨ Key Features
 
 ### 🔐 1. Multi-Tenant Account Security & Clean Slate Policy

@@ -19,9 +19,11 @@
 
 ## 📸 Visual Showcase & App Demo
 
-| 📊 Live MSME Store Dashboard & Financial Analytics | ⚡ Smart Invoicing, Inventory & AI Copilot |
-| :---: | :---: |
-| ![VyaparSathi AI Dashboard & Analytics](https://kommodo.ai/i/XdRlPJXKFYruTHXxi2u3) | ![VyaparSathi AI Billing & AI Copilot Workflows](https://kommodo.ai/i/optV3VY67dxz3cMvFoxd) |
+<div align="center">
+  <img src="https://kommodo.ai/i/XdRlPJXKFYruTHXxi2u3" width="100%" alt="VyaparSathi AI Dashboard Analytics" />
+  <br/><br/>
+  <img src="https://kommodo.ai/i/optV3VY67dxz3cMvFoxd" width="100%" alt="VyaparSathi AI Workflows" />
+</div>
 
 ---
 

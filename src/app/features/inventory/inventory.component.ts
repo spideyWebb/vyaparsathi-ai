@@ -10,7 +10,7 @@ import { firstValueFrom } from 'rxjs';
   imports: [CommonModule, FormsModule],
   template: `
     <div class="space-y-6">
-      <div class="flex items-center justify-between">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div>
           <h2 class="text-xl font-heading font-extrabold text-[#192837]">Product Inventory</h2>
           <p class="text-xs text-slate-500">Track stock levels, prices, and automated reorder alerts</p>

@@ -2,32 +2,43 @@ import { Component, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
+import { SidebarService } from '../../../core/services/sidebar.service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [CommonModule],
   template: `
-    <header class="h-16 bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-30 px-6 flex items-center justify-between">
-      <!-- Search / Page Title -->
-      <div class="flex items-center gap-4">
-        <h1 class="text-base font-heading font-extrabold text-[#192837] tracking-tight">
+    <header class="h-16 bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-0 z-20 px-4 sm:px-6 flex items-center justify-between">
+      <!-- Left: Mobile Hamburger Toggle + Page Title -->
+      <div class="flex items-center gap-3">
+        <button
+          (click)="sidebarService.toggle()"
+          class="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 md:hidden transition-all"
+          title="Toggle Navigation Menu"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+
+        <h1 class="text-xs sm:text-base font-heading font-extrabold text-[#192837] tracking-tight truncate max-w-[170px] sm:max-w-none">
           VyaparSathi AI MSME Workspace
         </h1>
       </div>
 
-      <!-- Action Items & User Profile -->
-      <div class="flex items-center gap-4">
+      <!-- Right: Action Items & User Profile -->
+      <div class="flex items-center gap-2 sm:gap-4">
         <!-- Notification Bell with Floating Dropdown Overlay -->
         <div class="relative">
           <button
             (click)="toggleNotifications()"
-            class="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all relative"
+            class="p-2 sm:p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all relative"
             title="Notifications"
           >
-            <span class="text-base">🔔</span>
+            <span class="text-sm sm:text-base">🔔</span>
             @if (unreadCount() > 0) {
-              <span class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-rose-500 text-white text-[10px] font-extrabold flex items-center justify-center border-2 border-white">
+              <span class="absolute -top-1 -right-1 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-rose-500 text-white text-[9px] sm:text-[10px] font-extrabold flex items-center justify-center border-2 border-white">
                 {{ unreadCount() }}
               </span>
             }
@@ -35,7 +46,7 @@ import { AuthService } from '../../../core/services/auth.service';
 
           <!-- Notification Dropdown Panel -->
           @if (showNotifications()) {
-            <div class="absolute right-0 mt-2 w-80 bg-white rounded-3xl border border-slate-200 shadow-2xl p-4 z-50 animate-in fade-in slide-in-from-top-2">
+            <div class="absolute right-0 mt-2 w-72 sm:w-80 bg-white rounded-3xl border border-slate-200 shadow-2xl p-4 z-50 animate-in fade-in slide-in-from-top-2">
               <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-3">
                 <h4 class="text-xs font-extrabold text-[#192837] uppercase tracking-wider">Store Notifications</h4>
                 @if (unreadCount() > 0) {
@@ -70,13 +81,13 @@ import { AuthService } from '../../../core/services/auth.service';
         </div>
 
         <!-- User Profile Dropdown -->
-        <div class="flex items-center gap-3 pl-2 border-l border-slate-200">
-          <div class="w-9 h-9 rounded-2xl bg-gradient-to-br from-[#7342E2] to-[#5b2ec6] text-white flex items-center justify-center font-extrabold text-xs shadow-md">
+        <div class="flex items-center gap-2 sm:gap-3 pl-2 border-l border-slate-200">
+          <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-2xl bg-gradient-to-br from-[#7342E2] to-[#5b2ec6] text-white flex items-center justify-center font-extrabold text-xs shadow-md flex-shrink-0">
             {{ getUserInitials() }}
           </div>
 
-          <div class="hidden sm:block text-left">
-            <h3 class="text-xs font-extrabold text-[#192837]">
+          <div class="hidden md:block text-left">
+            <h3 class="text-xs font-extrabold text-[#192837] truncate max-w-[140px]">
               {{ authService.user()?.businessName || 'Sharma General Store' }}
             </h3>
             <span class="text-[10px] font-semibold text-emerald-600 flex items-center gap-1">
@@ -86,10 +97,10 @@ import { AuthService } from '../../../core/services/auth.service';
 
           <button
             (click)="logout()"
-            class="p-2 rounded-xl text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition-colors ml-1"
+            class="p-1.5 sm:p-2 rounded-xl text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition-colors ml-1"
             title="Log Out"
           >
-            <span class="text-xs font-bold uppercase">Logout</span>
+            <span class="text-[10px] sm:text-xs font-bold uppercase">Logout</span>
           </button>
         </div>
       </div>
@@ -107,7 +118,11 @@ export class HeaderComponent {
 
   unreadCount = computed(() => this.notifications().filter((n) => !n.read).length);
 
-  constructor(public authService: AuthService, private router: Router) {}
+  constructor(
+    public authService: AuthService,
+    public sidebarService: SidebarService,
+    private router: Router
+  ) {}
 
   toggleNotifications(): void {
     this.showNotifications.update((v) => !v);

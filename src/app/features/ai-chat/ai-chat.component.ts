@@ -9,16 +9,16 @@ import { firstValueFrom } from 'rxjs';
   standalone: true,
   imports: [CommonModule, FormsModule],
   template: `
-    <div class="h-[calc(100vh-7rem)] flex flex-col bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+    <div class="h-[calc(100vh-8.5rem)] sm:h-[calc(100vh-7rem)] flex flex-col bg-white rounded-2xl sm:rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
       <!-- Chat Header -->
-      <div class="p-4 border-b border-slate-100 bg-slate-50/50 flex items-center justify-between">
+      <div class="p-3 sm:p-4 border-b border-slate-100 bg-slate-50/50 flex items-center justify-between">
         <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-2xl bg-gradient-to-tr from-[#7342E2] to-[#5b2ec6] flex items-center justify-center text-white text-base shadow-sm">
+          <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-2xl bg-gradient-to-tr from-[#7342E2] to-[#5b2ec6] flex items-center justify-center text-white text-sm sm:text-base shadow-sm">
             🤖
           </div>
           <div>
-            <h3 class="text-sm font-bold text-[#192837]">AI Vyapar Copilot</h3>
-            <span class="text-[10px] text-emerald-600 font-bold flex items-center gap-1">
+            <h3 class="text-xs sm:text-sm font-bold text-[#192837]">AI Vyapar Copilot</h3>
+            <span class="text-[9px] sm:text-[10px] text-emerald-600 font-bold flex items-center gap-1">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span> Active & Synced to DB
             </span>
           </div>
@@ -26,14 +26,14 @@ import { firstValueFrom } from 'rxjs';
       </div>
 
       <!-- Messages Stream -->
-      <div class="flex-1 p-4 overflow-y-auto space-y-4">
+      <div class="flex-1 p-3 sm:p-4 overflow-y-auto space-y-3 sm:space-y-4">
         @if (messages().length === 0) {
-          <div class="h-full flex flex-col items-center justify-center text-center p-6">
-            <div class="w-12 h-12 rounded-full bg-purple-50 text-[#7342E2] flex items-center justify-center text-xl mb-2">
+          <div class="h-full flex flex-col items-center justify-center text-center p-4 sm:p-6">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-purple-50 text-[#7342E2] flex items-center justify-center text-lg sm:text-xl mb-2">
               💡
             </div>
-            <h4 class="text-sm font-bold text-[#192837]">How can I help your business today?</h4>
-            <p class="text-xs text-slate-500 mt-1 max-w-xs">
+            <h4 class="text-xs sm:text-sm font-bold text-[#192837]">How can I help your business today?</h4>
+            <p class="text-[11px] sm:text-xs text-slate-500 mt-1 max-w-xs">
               Ask about inventory stock alerts, GST filing tips, or P&L profit optimization.
             </p>
           </div>
@@ -41,7 +41,7 @@ import { firstValueFrom } from 'rxjs';
           @for (m of messages(); track m.id) {
             <div class="flex flex-col" [class.items-end]="m.sender === 'user'" [class.items-start]="m.sender !== 'user'">
               <div
-                class="max-w-md p-3.5 rounded-2xl text-xs leading-relaxed"
+                class="max-w-[88%] sm:max-w-md p-3 sm:p-3.5 rounded-2xl text-xs leading-relaxed"
                 [class.bg-[#7342E2]]="m.sender === 'user'"
                 [class.text-white]="m.sender === 'user'"
                 [class.bg-slate-100]="m.sender !== 'user'"
